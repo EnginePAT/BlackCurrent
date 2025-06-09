@@ -1,0 +1,88 @@
+/* Hide mobile menu by default */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100%;
+  background-color: #121216;
+  color: white;
+  padding: 60px 30px 30px;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.5);
+  transition: right 0.4s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Show mobile menu when active */
+.mobile-menu.active {
+  right: 0;
+}
+
+.menu-toggle.active {
+  display: none; /* Hide menu when toggle is active */
+}
+
+/* Close button inside mobile menu */
+.mobile-menu::before {
+  content: "×";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Mobile menu list styling */
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 30px;
+  flex-grow: 1;
+}
+
+.mobile-menu li {
+  margin-bottom: 25px;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+  padding: 10px 0;
+  display: block;
+  border-bottom: 1px solid #2a2a2a;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  color: #bbb;
+}
+
+/* Hamburger button styling */
+.menu-toggle {
+  display: none; /* hide on desktop */
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* Hide desktop nav on mobile */
+@media (max-width: 768px) {
+  #nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: block; /* show hamburger on mobile */
+  }
+}
